@@ -2,4 +2,4 @@
 
 My first cybersecurity project.
 
-Status: In Development
+Status: Developing
