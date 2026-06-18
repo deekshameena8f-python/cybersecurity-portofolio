@@ -1,7 +1,5 @@
-print("Password Security Auditor")
 
 def analyze_password(password):
-    password = input("Enter a password: ")
     length = len(password)
     special_characters = "!@#$%^&*()_+-=[]{}|;:,.<>?/"
     
@@ -95,10 +93,12 @@ def generate_report(length,
                     has_digit,
                     has_special,
                     score,
-                    strength):
+                    strength,
+                    is_common
+                   ):
 
 
-report = f"""
+    report = f"""
 PASSWORD AUDIT REPORT
 =====================
 
@@ -107,6 +107,7 @@ Uppercase: {has_upper}
 Lowercase: {has_lower}
 Digits: {has_digit}
 Special Characters: {has_special}
+Common Password: {is_common}
 
 Score: {score}
 Strength: {strength}
@@ -156,7 +157,7 @@ def main():
     strength = get_strength(score)
     is_common = check_common_password(password)
 
-     display_results(
+    display_results(
         length,
         has_upper,
         has_lower,
