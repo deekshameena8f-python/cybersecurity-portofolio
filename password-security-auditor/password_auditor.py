@@ -42,3 +42,15 @@ if has_special:
 
 print("Score:", score)
 
+if score <= 2:
+    strength = "Weak"
+
+elif score <= 4:
+    strength = "Moderate"
+
+else:
+    strength = "Strong"
+
+print("Strength:", strength) 
+
+
