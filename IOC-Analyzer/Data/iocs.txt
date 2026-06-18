@@ -1,7 +1,0 @@
-8.8.8.8
-192.168.1.100
-malicious-example.com
-google.com
-44d88612fea8a8f36de82e1278abb02f
-eicar_test_file.exe
-[admin@company.com](mailto:admin@company.com)
