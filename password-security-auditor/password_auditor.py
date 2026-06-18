@@ -64,12 +64,9 @@ def get_strength(score):
 def check_common_password(password):
 
     with open("common_passwords.txt", "r") as file:
-        common_passwords = file.read().splitlines()
+        common_passwords = [p.lower() for p in file.read().splitlines()]
+    return password.lower() in common_passwords
 
-    if password.lower() in common_passwords:
-        return True
-
-    return False
 
 def display_results(length, has_upper, has_lower, has_digit, has_special,
                     score, strength, is_common):
@@ -115,6 +112,7 @@ Strength: {strength}
 
     with open("reports/audit_report.txt", "w") as file:
         file.write(report)
+    print("\nReport generated successfully!")
 
 
 def show_suggestions(length,
@@ -176,7 +174,8 @@ def main():
         has_digit,
         has_special,
         score,
-        strength
+        strength,
+        is_common
     )
 
     show_suggestions(
