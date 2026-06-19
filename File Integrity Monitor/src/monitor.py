@@ -12,3 +12,16 @@ def check_integrity(directory, baseline):
             current[file] = file_hash
 
     return current
+
+def detect_changes(current, baseline):
+
+    modified = []
+
+    for file in baseline:
+
+        if file in current:
+
+            if baseline[file] != current[file]:
+                modified.append(file)
+
+    return modified
