@@ -21,3 +21,7 @@ def create_baseline(directory, output_file):
             f,
             indent=4
         )
+
+def load_baseline(file):
+    with open(file, "r") as f:
+        return json.load(f)
