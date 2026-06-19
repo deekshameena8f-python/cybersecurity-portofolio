@@ -36,3 +36,14 @@ def detect_new_files(current, baseline):
             new_files.append(file)
 
     return new_files
+
+def detect_deleted_files(current, baseline):
+
+    deleted = []
+
+    for file in baseline:
+
+        if file not in current:
+            deleted.append(file)
+
+    return deleted
