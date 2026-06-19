@@ -47,3 +47,16 @@ def detect_deleted_files(current, baseline):
             deleted.append(file)
 
     return deleted
+
+import logging
+
+logging.basicConfig(
+    filename="logs/fim.log",
+    level=logging.INFO,
+    format="%(asctime)s %(message)s"
+)
+
+def log_changes(changes):
+
+    for item in changes:
+        logging.warning(item)
