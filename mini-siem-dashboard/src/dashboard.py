@@ -1,6 +1,7 @@
 
 
 import streamlit as st
+import pandas as pd
 
 from parser import parse_logs
 from detector import detect_alerts
@@ -31,6 +32,14 @@ st.header("Alerts")
 
 for alert in alerts:
     st.error(alert)
+
+df = pd.DataFrame(logs)
+
+st.header("Log Distribution")
+
+st.bar_chart(
+    df["level"].value_counts()
+)
 
 st.header("Raw Logs")
 
