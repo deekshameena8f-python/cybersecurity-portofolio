@@ -18,27 +18,28 @@ def main():
     print("File Integrity Monitor Started...")
 
 
-    baseline_data = load_baseline()
+    baseline_data = load_baseline(BASELINE_FILE)
     while True:
-        changes = detect_changes(
-            TARGET_DIRECTORY,
-            baseline_data
-        )
+        current_data = check_integrity(TARGET_DIRECTORY, baseline_data)
+        modified = detect_changes(current_data, baseline_data)
+        new_files = detect_new_files(current_data, baseline_data)
+        deleted = detect_deleted_files(current_data, baseline_data)
         
         if any(changes.values()):
             print("\nChanges Detected!\n")
 
             # Generate text report
-            generate_report(changes)
-
             # Generate CSV report
+            changes = {"modified": modified, "new": new_files, "deleted": deleted}
+            generate_report(modified, new_files, deleted)
             export_to_csv(changes)
+            
 
             # Show colored console alerts
             display_alerts(changes)
 
             # Send email notification
-             if ENABLE_EMAIL_ALERTS:
+            if ENABLE_EMAIL_ALERTS:
                 send_email_alert(changes)
         
         else:
