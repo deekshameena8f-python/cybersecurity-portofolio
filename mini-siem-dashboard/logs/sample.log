@@ -1,1 +1,7 @@
-
+2025-06-01 10:00:01 INFO User login successful
+2025-06-01 10:01:12 INFO File opened
+2025-06-01 10:03:15 WARNING Multiple login attempts detected
+2025-06-01 10:05:21 ERROR Failed login from 192.168.1.10
+2025-06-01 10:06:35 INFO User logout
+2025-06-01 10:08:41 ERROR Failed login from 10.0.0.5
+2025-06-01 10:10:11 WARNING Suspicious process execution
