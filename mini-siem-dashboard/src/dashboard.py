@@ -44,3 +44,15 @@ st.bar_chart(
 st.header("Raw Logs")
 
 st.write(logs)
+
+import time
+
+placeholder = st.empty()
+
+while True:
+
+    logs = parse_logs("logs/sample.log")
+
+    placeholder.write(logs)
+
+    time.sleep(5)
